@@ -1,0 +1,337 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+   <form class="row g-3" action="/register" method="POST">
+      <hr />
+      <h1>Camper's Information</h1>
+      <hr />
+      <!-- name -->
+      <div class="col-md-6">
+         <label for="lastName" class="form-label">Last Name</label>
+         <input type="text" class="form-control" name="name[last]" id="lastName" placeholder="Enter Last Name">
+      </div>
+      <div class="col-md-6">
+         <label for="firstName" class="form-label">Fist Name</label>
+         <input type="text" class="form-control" name="name[first]" id="firstName" placeholder="Enter First Name">
+      </div>
+      <!-- gender -->
+      <div class="gender">
+         <label for="gender">Gender</label>
+         <select id="gender" name="gender" class="form-select">
+            <option selected>Choose...</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+         </select>
+      </div>
+
+      <!-- address -->
+      <div class="col-12">
+         <label for="address" class="form-label">Address</label>
+         <input type="text" class="form-control" id="address" name="address[street]" placeholder="1234 Main St">
+      </div>
+      <div class="col-md-6">
+         <label for="city" class="form-label">City</label>
+         <input type="text" class="form-control" id="city" name="address[city]">
+      </div>
+      <div class="col-md-4">
+         <label for="state" class="form-label">State</label>
+         <select id="state" name="address[state]" class="form-select">
+            <option selected>Choose...</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+         </select>
+      </div>
+      <div class="col-md-2">
+         <label for="zip" class="form-label">Zip</label>
+         <input type="text" class="form-control" id="zip" name="address[zip]">
+      </div>
+      <!-- birthday -->
+      <h5 class='dob'>Date Of Birth</h5>
+      <div class="col-md-5">
+         <label for="month" class="form-label">Month</label>
+         <select class="form-select" id="month" name="dob[month]" aria-label="Default select example">
+            <option selected>Month</option>
+            <option value="Jan">January</option>
+            <option value="Feb">February</option>
+            <option value="Mar">March</option>
+            <option value="Apr">April</option>
+            <option value="May">May</option>
+            <option value="Jun">June</option>
+            <option value="Jul">July</option>
+            <option value="Aug">August</option>
+            <option value="Sep">September</option>
+            <option value="Oct">October</option>
+            <option value="Nov">November</option>
+            <option value="Dec">December</option>
+         </select>
+      </div>
+      <div class="col-md-3">
+         <label for="day" class="form-label">Day</label>
+         <select id="day" name="dob[day]" class="form-select">
+            <option selected>Day</option>
+            <% for ( let i=1; i<32; i++ ) { %>
+               <option>
+                  <%= i %>
+               </option>
+               <% } %>
+         </select>
+      </div>
+      <div class="col-md-4">
+         <label for="year" class="form-label">Year</label>
+         <select id="year" name="dob[year]" class="form-select">
+            <option selected>Year</option>
+            <% for ( let i=1950; i<2022; i++ ) { %>
+               <option>
+                  <%= i %>
+               </option>
+               <% } %>
+         </select>
+      </div>
+      <!-- session -->
+      <div class="container-fluid">
+         <h3>Please Choose a Session ** Please note Whole Day Option DOES NOT include Early Drop Off/Late Pick Up</h3>
+         <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="earlyDrop" name="session[earlyDrop]" value="earlyDrop">
+            <label class="form-check-label" for="earlyDrop">Early Drop Off - 8:00am - 9:00am ($10)</label>
+         </div>
+         <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="morningSession" name="session[morningSession]"
+               value="morningSession">
+            <label class="form-check-label" for="morningSession">Morning Session - 9:00am - 11:30am ($30)</label>
+         </div>
+         <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="afternoonSession" name="session[afternoonSession]"
+               value="afternoonSession">
+            <label class="form-check-label" for="afternoonSession">Afternoon Session - 1:30pm - 4:00pm ($30)</label>
+         </div>
+         <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="latePickUp" name="session[latePickUp]"
+               value="latePickUp">
+            <label class="form-check-label" for="latePickUp">Late Pick Up - 4:00pm - 5:00pm ($10)</label>
+         </div>
+         <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="privateLessons" name="session[privateLessons]"
+               value="privateLessons">
+            <label class="form-check-label" for="privateLessons">Private Lessons</label>
+         </div>
+         <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="percySchedule" name="session[percySchedule]"
+               value="percySchedule">
+            <label class="form-check-label" for="percySchedule">Personalized Schedule</label>
+         </div>
+      </div>
+
+      <div class="select-box">
+         <label for="student" class="form-label">Bergenfield High School Student (Including Incoming
+            Freshman)</label>
+         <select class="form-select" aria-label="Default select example" id="student" name="student">
+            <option selected>Choose...</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+         </select>
+      </div>
+
+      <div class="note">
+         <h5>**PLEASE NOTE**</h5>
+         <p>Parents are responsible for their child(ren) during the time between sessions (i.e. 11:30am to 1:30pm).
+         </p>
+         <p>If you need your child to stay during this time, there will be a $20 fee. Food is not provided, so please
+            make
+            sure that your child(ren) come prepared with food or snacks.</p>
+         <p>**In case of rain or extreme heat, tennis will be canceled for the day. A make-up session will be offered
+            at
+            your convenience.</p>
+      </div>
+
+      <hr />
+      <h1>Parent of Legal Guardian Information</h1>
+      <hr />
+      <!-- parent / guardian -->
+      <div class="col-md-6">
+         <label for="parent" class="form-label">Parent/Legal Guardian</label>
+         <input type="text" class="form-control" name="parent" id="parent" placeholder="Enter Parent's Name">
+      </div>
+      <div class="col-md-6">
+         <label for="relation" class="form-label">Relation</label>
+         <input type="text" class="form-control" name="relation" id="relation" placeholder="Relation to Camper">
+      </div>
+      <!-- phone -->
+      <div class="col-md-4">
+         <label for="workPhone" class="form-label">Work Phone</label>
+         <input type="text" class="form-control" name="phone[work]" id="workPhone" placeholder="(000) 000-0000">
+      </div>
+      <div class="col-md-4">
+         <label for="cellPhone" class="form-label">Cell Phone</label>
+         <input type="text" class="form-control" name="phone[cell]" id="cellPhone" placeholder="(000) 000-0000"
+            required>
+      </div>
+      <div class="col-md-4">
+         <label for="homePhone" class="form-label">Home Phone</label>
+         <input type="text" class="form-control" name="phone[home]" id="homePhone" placeholder="(000) 000-0000">
+      </div>
+
+      <hr />
+      <h1>Emergency Contact Info</h1>
+      <hr />
+      <!-- emergency contact -->
+      <div class="col-md-8">
+         <label for="emergencyContact" class="form-label">Emergency Contact Name (if parent or guardian is
+            unavailable)</label>
+         <input type="text" class="form-control" name="emergencyContact" id="emergencyContact"
+            placeholder="Emergency Contact">
+      </div>
+      <div class="col-md-6">
+         <label for="emergencyPhone1" class="form-label">Emergency Phone Number</label>
+         <input type="text" class="form-control" name="emergencyPhone[cell]" id="emergencyPhone1"
+            placeholder="(000) 000-0000" required>
+      </div>
+      <div class="col-md-6">
+         <label for="emergencyPhone2" class="form-label">Emergency Phone Nmumber #2</label>
+         <input type="text" class="form-control" name="emergencyPhone[cell2]" id="emergencyPhone2"
+            placeholder="(000) 000-0000">
+      </div>
+
+      <hr />
+      <h1>Email Confirmation</h1>
+      <hr />
+      <!-- email -->
+      <div class="col-md-8">
+         <label for="parentsEmail">Parent's Email</label>
+         <input type="email" class="form-control" id="parentsEmail" name="parentsEmail" aria-describedby="emailHelp"
+            placeholder="Enter email">
+         <small id="emailHelp" class="form-text text-muted">example@example.com</small>
+      </div>
+
+      <hr />
+      <h1>Other Information</h1>
+      <hr />
+      <!-- how did you hear about us? -->
+      <div class="select-box">
+         <label for="hearAbout" class="form-label">How did you hear about Hall of Fame Sports - Tennis Camp?</label>
+         <select class="form-select" aria-label="how did you hear about us" id="hearAbout" name="hearAbout">
+            <option selected>Please Select</option>
+            <option value="friend">Friend</option>
+            <option value="church">Church</option>
+            <option value="web">Web</option>
+            <option value="promo">Promotional Event</option>
+            <option value="other">Other</option>
+         </select>
+      </div>
+
+      <div class="form-group note">
+         <label for="referal">Who referred you to us?</label>
+         <textarea class="form-control" id="referal" name="referal" rows="3" placeholder="Type here..."></textarea>
+      </div>
+
+      <hr />
+      <h1>Health Information</h1>
+      <hr />
+      <!-- health -->
+      <div class="form-group">
+         <label for="restrictions">Any activity the camper should be restricted from?</label>
+         <textarea class="form-control" id="restrictions" name="restrictions" rows="3"
+            placeholder="Type here..."></textarea>
+      </div>
+      <div class="form-group">
+         <label for="conditions">Any physical, mental or other condition that would require special attention or
+            medication while at camp?</label>
+         <textarea class="form-control" id="conditions" name="conditions" rows="3"
+            placeholder="Type here..."></textarea>
+      </div>
+      <div class="form-group">
+         <label for="medications">List all medications, both prescribed and over the counter, rescue inhalers, etc.
+            that
+            may need to be administered while at camp</label>
+         <textarea class="form-control" id="medications" name="medications" rows="3"
+            placeholder="Type here..."></textarea>
+      </div>
+      <div class="form-group">
+         <label for="allergies">List any allergies (ex: bees, peanuts, dairy)</label>
+         <textarea class="form-control" id="allergies" name="allergies" rows="3" placeholder="Type here..."></textarea>
+      </div>
+      <div class="form-group">
+         <label for="dietary">Any dietary needs that we should know about?</label>
+         <textarea class="form-control" id="dietary" name="dietary" rows="3" placeholder="Type here..."></textarea>
+      </div>
+
+      <hr />
+      <h1>Camper Photo Release</h1>
+      <hr />
+
+      <div class="select-box">
+         <label for="photoRelease" class="form-check-label">I agree that photos of my child can be taken and used
+            for camp social media purposes</label>
+         <select class="form-select" aria-label="do you give photo release" id="photoRelease" name="photoRelease">
+            <option selected>Please Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+         </select>
+      </div>
+
+      <div class="note">
+         <p>By hitting submit and putting your initials, you agree that you are the parent or legal guardian of the
+            above named camper, and are over the age of 18. In case of medical emergency or general medical care, I
+            give
+            consent for medical treatment for the above named camper by authorized personnel. I understand that the
+            above named camper will only be released to the names listed above, an update may be done at
+            registration. I
+            certify that my child has my permission to attend camp and participate in all activities.</p>
+      </div>
+
+      <div class="col-md-8">
+         <label for="signature" class="form-label">Electronic signature, please sign full name</label>
+         <input type="text" class="form-control" name="signature" id="signature" placeholder="Enter full name" required>
+      </div>
+      <footer class="form">
+         <button type="submit" class="btn btn-success">Submit</button>
+         <a class='form-link' href="/home">cancel</a>
+      </footer>
+   </Form>

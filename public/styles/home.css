@@ -1,0 +1,115 @@
+/* Color Scheme
+
+#13505B Midnight Green Eagle Green
+#0C7489 Teal Blue
+#119DA4 Viridian Green
+#040404 Rich Black
+#D7D9CE Timberwolf 
+
+*/
+
+body { 
+   background-color: #040404;
+   color: #13505B;
+   height: 100%;
+}
+
+/* Navbar */
+.brand {
+   display: flex;
+   align-items: center;
+   color: beige;
+}
+
+.navbar.navbar-expand-lg {
+   background-color: #13505B;
+}
+
+#navbarHOF a {
+   color: beige;
+}
+
+.navbar-toggler {
+   border-color: beige;
+}
+.navbar-toggler:active, .navbar-toggler:focus {
+   outline: none;
+   }
+.navbar-toggler-icon { 
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(250, 244, 211)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");    
+   color: beige;
+}
+
+.dropdown-menu.show {
+   background-color: #13505B;
+}
+.dropdown-item:hover {
+   background-color: #119DA4;
+}
+
+/* Home Page */
+a {
+   color: #119DA4;
+   text-decoration: none;
+}
+a:hover {
+   color: #D7D9CE; 
+}
+
+.banner-image {
+   width: 100%;
+}
+
+/* Form */
+.row.g-3 {
+   background-color:beige;
+}
+
+h1 {
+   margin: 0;
+}
+hr {
+   margin-bottom: 0;
+}
+.dob {
+   margin-bottom: 0;
+}
+.note {
+   margin-top: 1rem;
+}
+
+.btn.btn-success {
+   background-color:#119DA4;
+   border:#119DA4;
+   margin: 1rem;
+}
+.btn.btn-success:hover {
+   background-color: #0C7489;
+   border: #0C7489;
+}
+a.form-link:hover {
+   color: #0C7489;
+   font-size: larger;
+}
+
+/* other pages */
+.pricing, .contact, .pros, .coming-soon, .new-camper, .home {
+   border: 1px solid #FAF4D3;
+   margin-top: 1rem;
+   padding: 1rem;
+}
+.pricing h2, .contact h2, .pros h2, .coming-soon h2, .new-camper h2 {
+   color: beige;
+}
+.pricing h4, .contact h4, .pros h4, .coming-soon h4, .new-camper h4 {
+   color: #c9d596;
+}
+.contact h4 {
+   display: inline-block;
+}
+
+.footer {
+   position: absolute;
+   bottom: 0;
+   margin-top: 1rem;
+}
